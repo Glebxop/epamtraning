@@ -1,3 +1,5 @@
+package controlevent;
+
 public abstract class AbstractAbstractControlEventWithOfsets extends AbstractControlEvent {
     private boolean[] ofsets;
     public boolean[] getOfsets() {

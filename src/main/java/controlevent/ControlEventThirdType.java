@@ -1,3 +1,5 @@
+package controlevent;
+
 public class ControlEventThirdType extends AbstractAbstractControlEventWithOfsets {
 
     static double passing;
@@ -6,7 +8,7 @@ public class ControlEventThirdType extends AbstractAbstractControlEventWithOfset
         passing = 40;
     }
 
-    public ControlEventThirdType(boolean offset1, boolean offset2, int exam) {
+    public ControlEventThirdType(boolean offset1, boolean offset2, double exam) {
         setOfsets(new boolean[]{offset1, offset2});
         setExams(new double[]{exam});
 

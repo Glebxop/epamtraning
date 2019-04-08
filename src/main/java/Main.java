@@ -1,40 +1,33 @@
-import com.google.gson.*;
+
+import controlevent.AbstractControlEvent;
+import controlevent.ControlEventFirstType;
+import controlevent.ControlEventSecondType;
+import controlevent.ControlEventThirdType;
+
+import org.xml.sax.SAXException;
+import xml.XMLreader;
+import xml.XMLwriter;
 
 
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 
 public class Main {
-    public static void main(String[] args) {
-        ControlEventSecondType controlEventSecondType=new ControlEventSecondType(5,6,true);
-        ControlEventThirdType controlEventThirdType=new ControlEventThirdType(true,true,20);
+    public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
+        ControlEventSecondType controlEventSecondType = new ControlEventSecondType(5, 6, true);
+        ControlEventThirdType controlEventThirdType = new ControlEventThirdType(true, true, 20);
+        ControlEventFirstType controlEventFirstType = new ControlEventFirstType(7, 7);
 
-
-
-        GsonBuilder builder = new GsonBuilder();
-        Gson gson = builder.create();
-
-       /* JsonDeserializer<AbstractControlEvent> jsonDeserializer=new JsonDeserializer<AbstractControlEvent>() {
-            public AbstractControlEvent deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
-                return null;
-            }
-        }*/
-
-        /*System.out.println(gson.toJson(controlEventSecondType));
-        String string=gson.toJson(controlEventSecondType);
-        AbstractControlEvent controlEvent=gson.fromJson(string,AbstractControlEvent.class);
-        System.out.println(controlEvent.toString());*/
-
-        ControlEventFirstType controlEventFirstType=new ControlEventFirstType(7,7);
-
-        List<AbstractControlEvent>list=new ArrayList<>();
+        List<AbstractControlEvent> list = new ArrayList<>();
         list.add(controlEventFirstType);
         list.add(controlEventSecondType);
         list.add(controlEventThirdType);
 
-        for (AbstractControlEvent abstractControlEvent:list){
+        /*for (AbstractControlEvent abstractControlEvent:list){
             abstractControlEvent.print();}
 
         Collections.sort(list);
@@ -47,8 +40,17 @@ public class Main {
             }else notPassed.add(abstractControlEvent);
         }
         for (AbstractControlEvent abstractControlEvent:passed){
-        abstractControlEvent.print();}
+        abstractControlEvent.print();}*/
 
+
+        XMLwriter xmLwriter = new XMLwriter();
+        xmLwriter.write("D:/MyXML.xml", list);
+
+        XMLreader xmLreader = new XMLreader();
+        List<AbstractControlEvent> abstractControlEventList = xmLreader.read("D:/MyXML.xml");
+        for (AbstractControlEvent abstractControlEvent : abstractControlEventList) {
+            abstractControlEvent.print();
+        }
 
     }
 }

@@ -1,4 +1,4 @@
-
+package controlevent;
 
 public class ControlEventSecondType extends AbstractAbstractControlEventWithOfsets {
     {

@@ -1,3 +1,5 @@
+package controlevent;
+
 public class ControlEventFirstType extends AbstractControlEvent {
     static {
         passing = 12;
@@ -7,7 +9,7 @@ public class ControlEventFirstType extends AbstractControlEvent {
     private static double passing;
 
 
-    public ControlEventFirstType(int exam1, int exam2) {
+    public ControlEventFirstType(double exam1, double exam2) {
         setExams(new double[]{exam1, exam2});
 
     }
