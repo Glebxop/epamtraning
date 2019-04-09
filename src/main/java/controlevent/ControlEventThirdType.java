@@ -2,7 +2,7 @@ package controlevent;
 
 public class ControlEventThirdType extends AbstractAbstractControlEventWithOffsets {
 
-    static double passing;
+    private static double passing;
 
     static {
         passing = 40;

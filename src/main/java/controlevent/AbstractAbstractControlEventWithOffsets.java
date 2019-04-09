@@ -7,11 +7,11 @@ public abstract class AbstractAbstractControlEventWithOffsets extends AbstractCo
         return offsets;
     }
 
-    public void setOffsets(boolean[] offsets) {
+     void setOffsets(boolean[] offsets) {
         this.offsets = offsets;
     }
 
-    public String getPassedString(boolean passed) {
+     String getPassedString(boolean passed) {
         return passed ? "Зачтено" : "Незачтено";
     }
 }

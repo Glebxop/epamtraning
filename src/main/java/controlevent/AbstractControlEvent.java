@@ -17,7 +17,7 @@ public abstract class AbstractControlEvent implements Comparable<AbstractControl
         return exams;
     }
 
-    public void setExams(double[] exams) {
+     void setExams(double[] exams) {
         this.exams = exams;
     }
 

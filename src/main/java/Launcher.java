@@ -13,7 +13,7 @@ class Launcher {
         Scanner scanner = new Scanner(System.in);
         String filePathFromConsole = scanner.nextLine();
         XMLreader xmLreader = new XMLreader();
-        List<AbstractControlEvent> abstractControlEventList = null;
+        List<AbstractControlEvent> abstractControlEventList;
         try {
             abstractControlEventList = xmLreader.read(filePathFromConsole);
         } catch (ParserConfigurationException | SAXException | IOException e) {

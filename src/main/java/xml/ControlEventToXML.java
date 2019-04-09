@@ -11,7 +11,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.util.List;
 
-public class ControlEventToXML {
+class ControlEventToXML {
     private Document doc;
 
 
@@ -38,7 +38,7 @@ public class ControlEventToXML {
         setExamElement(controlEvent, event);
 
         if (controlEvent instanceof AbstractAbstractControlEventWithOffsets) {
-            setOfsetElements(controlEvent, event);
+            setOffsetElements(controlEvent, event);
 
         }
 
@@ -58,7 +58,7 @@ public class ControlEventToXML {
     }
 
 
-    private void setOfsetElements(AbstractControlEvent controlEvent, Element event) {
+    private void setOffsetElements(AbstractControlEvent controlEvent, Element event) {
         Element offsets = doc.createElement("offsets");
         event.appendChild(offsets);
         for (int i = 0; i < ((AbstractAbstractControlEventWithOffsets) controlEvent).getOffsets().length; i++) {
@@ -70,6 +70,6 @@ public class ControlEventToXML {
     }
 
     private String getName(int number) {
-        return String.valueOf(number += 1);
+        return String.valueOf(number + 1);
     }
 }
