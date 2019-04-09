@@ -16,7 +16,7 @@ public class ControlEventFirstType extends AbstractControlEvent {
 
 
     public void print() {
-        System.out.println("Экзамен № 1 - " + getExams()[0]+" экзамен № 2 -"+ getExams()[1]);
+        System.out.println("Экзамен № 1 - " + getExams()[0] + " экзамен № 2 -" + getExams()[1]);
     }
 
     @Override

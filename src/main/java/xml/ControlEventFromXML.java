@@ -16,14 +16,14 @@ import java.util.List;
 public class ControlEventFromXML extends DefaultHandler {
 
 
-    private List<Boolean> ofsetsList;
+    private List<Boolean> offsetsList;
     private List<Double> examsList;
     private List<AbstractControlEvent> controlEventList;
 
 
     ControlEventFromXML() {
         examsList = new ArrayList<>();
-        ofsetsList = new ArrayList<>();
+        offsetsList = new ArrayList<>();
         controlEventList = new ArrayList<>();
 
     }
@@ -42,11 +42,9 @@ public class ControlEventFromXML extends DefaultHandler {
             examsList.add(Double.valueOf(attributes.getValue(0)));
 
 
-        } else if (qName.equalsIgnoreCase("ofset")) {
-            ofsetsList.add(Boolean.valueOf(attributes.getValue(0)));
+        } else if (qName.equalsIgnoreCase("offset")) {
+            offsetsList.add(Boolean.valueOf(attributes.getValue(0)));
         }
-
-
     }
 
 
@@ -54,12 +52,12 @@ public class ControlEventFromXML extends DefaultHandler {
     public void endElement(String uri, String localName, String qName) {
 
         if (qName.equalsIgnoreCase("event")) {
-            if (ofsetsList.size() == 0) {
+            if (offsetsList.size() == 0) {
                 controlEventList.add(new ControlEventFirstType(examsList.get(0), examsList.get(1)));
-            } else if (ofsetsList.size() == 1) {
-                controlEventList.add(new ControlEventSecondType(examsList.get(0), examsList.get(1), ofsetsList.get(0)));
-            } else if (ofsetsList.size() == 2) {
-                controlEventList.add(new ControlEventThirdType(ofsetsList.get(0), ofsetsList.get(1), examsList.get(0)));
+            } else if (offsetsList.size() == 1) {
+                controlEventList.add(new ControlEventSecondType(examsList.get(0), examsList.get(1), offsetsList.get(0)));
+            } else if (offsetsList.size() == 2) {
+                controlEventList.add(new ControlEventThirdType(offsetsList.get(0), offsetsList.get(1), examsList.get(0)));
             }
             clearLists();
 
@@ -68,7 +66,7 @@ public class ControlEventFromXML extends DefaultHandler {
 
     private void clearLists() {
         examsList.clear();
-        ofsetsList.clear();
+        offsetsList.clear();
     }
 
 }

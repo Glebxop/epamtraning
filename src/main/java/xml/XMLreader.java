@@ -15,8 +15,8 @@ public class XMLreader {
         SAXParserFactory factory = SAXParserFactory.newInstance();
         SAXParser parser = factory.newSAXParser();
         File file = new File(pathName);
-        ControlEventFromXML saxp = new ControlEventFromXML();
-        parser.parse(file, saxp);
-        return saxp.getControlEventList();
+        ControlEventFromXML controlEventFromXML = new ControlEventFromXML();
+        parser.parse(file, controlEventFromXML);
+        return controlEventFromXML.getControlEventList();
     }
 }

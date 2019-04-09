@@ -1,6 +1,6 @@
 package xml;
 
-import controlevent.AbstractAbstractControlEventWithOfsets;
+import controlevent.AbstractAbstractControlEventWithOffsets;
 import controlevent.AbstractControlEvent;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -37,7 +37,7 @@ public class ControlEventToXML {
 
         setExamElement(controlEvent, event);
 
-        if (controlEvent instanceof AbstractAbstractControlEventWithOfsets) {
+        if (controlEvent instanceof AbstractAbstractControlEventWithOffsets) {
             setOfsetElements(controlEvent, event);
 
         }
@@ -59,17 +59,17 @@ public class ControlEventToXML {
 
 
     private void setOfsetElements(AbstractControlEvent controlEvent, Element event) {
-        Element ofsets = doc.createElement("ofsets");
-        event.appendChild(ofsets);
-        for (int i = 0; i < ((AbstractAbstractControlEventWithOfsets) controlEvent).getOfsets().length; i++) {
-            Element ofset = doc.createElement("ofset");
-            ofset.setAttribute("ofset" + getName(i), String.valueOf(((AbstractAbstractControlEventWithOfsets) controlEvent).getOfsets()[i]));
-            ofsets.appendChild(ofset);
+        Element offsets = doc.createElement("offsets");
+        event.appendChild(offsets);
+        for (int i = 0; i < ((AbstractAbstractControlEventWithOffsets) controlEvent).getOffsets().length; i++) {
+            Element ofset = doc.createElement("offset");
+            ofset.setAttribute("offset" + getName(i), String.valueOf(((AbstractAbstractControlEventWithOffsets) controlEvent).getOffsets()[i]));
+            offsets.appendChild(ofset);
         }
 
     }
 
     private String getName(int number) {
-          return String.valueOf(number += 1);
+        return String.valueOf(number += 1);
     }
 }

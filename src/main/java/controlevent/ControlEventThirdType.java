@@ -1,6 +1,6 @@
 package controlevent;
 
-public class ControlEventThirdType extends AbstractAbstractControlEventWithOfsets {
+public class ControlEventThirdType extends AbstractAbstractControlEventWithOffsets {
 
     static double passing;
 
@@ -9,7 +9,7 @@ public class ControlEventThirdType extends AbstractAbstractControlEventWithOfset
     }
 
     public ControlEventThirdType(boolean offset1, boolean offset2, double exam) {
-        setOfsets(new boolean[]{offset1, offset2});
+        setOffsets(new boolean[]{offset1, offset2});
         setExams(new double[]{exam});
 
     }
@@ -17,12 +17,12 @@ public class ControlEventThirdType extends AbstractAbstractControlEventWithOfset
 
     public boolean isPassed() {
 
-        return getExams()[0] >= passing & getOfsets()[0] & getOfsets()[1];
+        return getExams()[0] >= passing & getOffsets()[0] & getOffsets()[1];
     }
 
 
     public void print() {
-        System.out.println("Зачет №1- " + getPassedString(getOfsets()[0]) + ", зачет №2- " + getPassedString(getOfsets()[1]) + ", экзамен- " + getExams()[0]);
+        System.out.println("Зачет №1- " + getPassedString(getOffsets()[0]) + ", зачет №2- " + getPassedString(getOffsets()[1]) + ", экзамен- " + getExams()[0]);
     }
 
     @Override
